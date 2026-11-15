@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Group Premium Calculator</title>
+<style>body{font-family:sans-serif;max-width:560px;margin:40px auto;padding:0 16px}.box{border:1px solid #ccc;border-radius:8px;padding:16px;margin-top:16px}</style>
+</head>
+<body>
+  <h2>Group Health Premium Calculator</h2>
+  <p>Upload a CSV with one row per member: age, sex, bmi, children, smoker, region.</p>
+  <form action="/uploader" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file1" accept=".csv" required>
+    <input type="submit" value="Upload">
+  </form>
+  {% if run %}<p><a href="/run">Calculate premium</a></p>{% endif %}
+  {% if complete %}
+  <div class="box">
+    <p>Members priced: <b>{{ members }}</b></p>
+    <p>Group premium: <b>{{ "{:,.2f}".format(premium_value) }}</b></p>
+    <p>Group premium with extra cover (+2,000 per member): <b>{{ "{:,.2f}".format(premium_value_2) }}</b></p>
+  </div>
+  {% endif %}
+</body>
+</html>
