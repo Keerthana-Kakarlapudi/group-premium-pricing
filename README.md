@@ -26,7 +26,7 @@ Premiums are set at group level, so the more useful check is error on a group's 
 ```bash
 pip install -r requirements.txt
 python train_model.py   # trains the model and prints the results above
-python app.py           # opens the calculator at http://127.0.0.1:5000
+python app.py           # opens the calculator at http://127.0.0.1:5001
 ```
 
 Try it with `data/sample_group.csv` (40 members).
